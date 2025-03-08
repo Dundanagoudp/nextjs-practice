@@ -19,6 +19,12 @@ const Home = () => {
             <Link href="/services" className="nav-link">
               Services
             </Link>
+
+          </li>
+          <li>
+            <Link href="/blog" className="nav-link">
+              Blogs
+            </Link>
           </li>
         </ul>
       </nav>

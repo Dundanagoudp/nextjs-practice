@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-const About = () => {
-  console.log('About Page');
+const Blogs = () => {
+  console.log("Blogs Page");
   return (
     <>
       <nav>
@@ -12,7 +12,7 @@ const About = () => {
             </Link>
           </li>
           <li>
-            <Link href="/about" className="nav-link active">
+            <Link href="/about" className="nav-link">
               About
             </Link>
           </li>
@@ -22,18 +22,28 @@ const About = () => {
             </Link>
           </li>
           <li>
-            <Link href="/blogs" className="nav-link">
+            <Link href="/blogs" className="nav-link active">
               Blogs
             </Link>
           </li>
         </ul>
       </nav>
       <div>
-        <h1>About Us</h1>
-        <p>We are a company dedicated to providing quality services.</p>
+        <h1>Welcome to Our Blog</h1>
+        <ol className="blog-links">
+          <li>
+            <Link href="/blogs/1">Blog 1</Link>
+          </li>
+          <li>
+            <Link href="/blogs/2">Blog 2</Link>
+          </li>
+          <li>
+            <Link href="/blogs/3">Blog 3</Link>
+          </li>
+        </ol>
       </div>
     </>
   );
 };
 
-export default About;
+export default Blogs;

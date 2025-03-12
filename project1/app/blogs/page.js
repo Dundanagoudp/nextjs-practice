@@ -1,4 +1,9 @@
 import Link from "next/link";
+import Views from "@/components/Views";
+import Likes from "@/components/Likes";
+import Comments from "@/components/Comments";
+import { Suspense } from "react";
+import Loading from "@/components/Loading";
 
 const Blogs = () => {
   console.log("Blogs Page");
@@ -28,9 +33,10 @@ const Blogs = () => {
           </li>
         </ul>
       </nav>
-      <div>
+      <div style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
         <h1>Welcome to Our Blog</h1>
-        <ol className="blog-links">
+       <div>
+       <ol className="blog-links">
           <li>
             <Link href="/blogs/1">Blog 1</Link>
           </li>
@@ -41,6 +47,16 @@ const Blogs = () => {
             <Link href="/blogs/3">Blog 3</Link>
           </li>
         </ol>
+        <Suspense fallback={<Loading children="views"/>}>
+        <Views/>
+        </Suspense>
+        <Suspense fallback={<Loading children="Likes"/>}>
+        <Likes/>
+        </Suspense>
+        <Suspense fallback={<Loading children="Comments"/>}>
+        <Comments/>
+        </Suspense>
+       </div>
       </div>
     </>
   );

@@ -1,27 +1,23 @@
 import Link from "next/link";
 
+export const dynamicParams = false; // Ensures only pre-defined params are used
+export const revalidate = 10; // Enables ISR (Incremental Static Regeneration)
 
 export async function generateStaticParams() {
-
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos")
-  const data = await res.json()
-  console.log(data);
-  return data.map((id) => ({
-    blogID: id.id.toString(),
-  }));
-  
-// return[
-//   {blogID: "1"},
-//   {blogID: "2"},
-//   {blogID: "3"},
-//   {blogID: "4"},
-//   {blogID: "5"},
-// ]
+  // SSG - Statically generates pages for these blog IDs
+  return [
+    { blogID: "1" },
+    { blogID: "2" },
+    { blogID: "3" },
+    { blogID: "4" },
+    { blogID: "5" },
+  ];
 }
 
+// Blog page component (SSG)
 const Blog = async ({ params }) => {
-  const { blogID } = await params;
-  console.log("blogID: ", blogID);
+  const { blogID } = params; // Correct destructuring
+
   return (
     <>
       <nav>
@@ -50,6 +46,8 @@ const Blog = async ({ params }) => {
       </nav>
       <div>
         <h1>Welcome to Our Blog {blogID}</h1>
+        <h2>Blog ID: {blogID}</h2>
+        <h3>Date: {new Date().toLocaleString()}</h3>
         <p>This is blog {blogID} page.</p>
       </div>
     </>

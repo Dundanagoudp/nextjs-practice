@@ -1,19 +1,13 @@
-import React from 'react'
+"use client";
+export default  function Comments() {
 
-export default async function Comments() {
-
-      // await new Promise((resolve) => {
-      //       setTimeout(() => {
-      //             resolve();
-      //       }, 9000);
-      // })
-
-      console.log("Comments Page");
-      
+// if(typeof window === "undefined"){
+//   return <div>500 commnets server</div>
+// }
 
   return (
     <div>
-      500 Comments
+      500 Comments{Date.now()}
     </div>
   )
 }

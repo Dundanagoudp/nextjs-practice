@@ -1,33 +1,10 @@
 import Link from "next/link";
+import Header from "./compontest2/Header";
 
 const Home = () => {
   return (
     <>
-      <nav>
-        <ul className="navbar">
-          <li>
-            <Link href="/" className="nav-link active">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="nav-link">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className="nav-link">
-              Services
-            </Link>
-
-          </li>
-          <li>
-            <Link href="/blog" className="nav-link">
-              Blogs
-            </Link>
-          </li>
-        </ul>
-      </nav>
+       <Header />
       <div>
         <h1>Home Page</h1>
         <p>Welcome to our website!</p>

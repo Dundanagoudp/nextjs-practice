@@ -1,3 +1,4 @@
+import Header from "@/app/compontest2/Header";
 import Link from "next/link";
 
 export const dynamicParams = false; // Ensures only pre-defined params are used
@@ -20,30 +21,7 @@ const Blog = async ({ params }) => {
 
   return (
     <>
-      <nav>
-        <ul className="navbar">
-          <li>
-            <Link href="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="nav-link">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className="nav-link">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link href="/blogs" className="nav-link active">
-              Blogs
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Header />
       <div>
         <h1>Welcome to Our Blog {blogID}</h1>
         <h2>Blog ID: {blogID}</h2>

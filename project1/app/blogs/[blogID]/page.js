@@ -19,10 +19,23 @@ export async function generateStaticParams() {
 const Blog = async ({ params }) => {
   const { blogID } = params; // Correct destructuring
 
+    // if(blogID % 2 === 0) {
+
+    //   throw new Error("Blog ID should be odd");
+
+    // }
+
+    const randomNumber = Math.random();
+   console.log(randomNumber);
+   
+    if(randomNumber < 0.5) {
+      throw new Error("Error occured");
+    }
+   
   return (
     <>
       <Header />
-      <div>
+      <div >
         <h1>Welcome to Our Blog {blogID}</h1>
         <h2>Blog ID: {blogID}</h2>
         <h3>Date: {new Date().toLocaleString()}</h3>

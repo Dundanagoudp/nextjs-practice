@@ -2,61 +2,57 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { FaSun, FaMoon } from "react-icons/fa";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Header() {
   const pathname = usePathname();
-  const [isDark, setIsDark] = useState(false); // Now using state
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    // You might want to add localStorage persistence here
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className={`header ${isDark ? 'dark' : 'light'}`}>
+    <header className="header" data-theme={theme}>
       <nav className="nav-container">
         <ul className="navbar">
           <li>
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className={`nav-link ${pathname === "/" ? "active" : ""}`}
             >
               Home
             </Link>
           </li>
           <li>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className={`nav-link ${pathname === "/about" ? "active" : ""}`}
             >
               About
             </Link>
           </li>
           <li>
-            <Link 
-              href="/services" 
+            <Link
+              href="/services"
               className={`nav-link ${pathname === "/services" ? "active" : ""}`}
             >
               Services
             </Link>
           </li>
-          {/* <li>
-            <Link 
-              href="/blog" 
-              className={`nav-link ${pathname === "/blog" ? "active" : ""}`}
+          <li>
+            <Link
+              href="/blogs"
+              className={`nav-link ${pathname === "/blogs" ? "active" : ""}`}
             >
               Blogs
             </Link>
-          </li> */}
+          </li>
         </ul>
-        
-        <button 
+
+        <button
           className="theme-toggle"
           onClick={toggleTheme}
           aria-label="Toggle dark mode"
         >
-          {isDark ? '☀️' : '🌙'} {/* Using emoji instead of icons */}
+          {theme === "dark" ? <FaSun size={20} /> : <FaMoon size={20} />}
         </button>
       </nav>
     </header>
